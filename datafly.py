@@ -8,7 +8,6 @@ from dgh import CsvDGH
 
 _DEBUG = True
 
-
 class _Table:
 
     def __init__(self, pt_path: str, dgh_paths: dict):
@@ -240,11 +239,16 @@ class _Table:
             else:
 
                 self._debug("[DEBUG] Suppressing max k non k-anonymous tuples...")
-                # Drop tuples which occur less than k times:
-                for qi_sequence, data in qi_frequency.items():
-                    if data[0] < k:
-                        qi_frequency.pop(qi_sequence)
-                self._log("[LOG] Suppressed %d tuples." % count, endl=True, enabled=v)
+
+                # Crear una lista de las claves que deben ser eliminadas
+                keys_to_delete = [qi_sequence for qi_sequence, data in qi_frequency.items() if data[0] < k]
+
+                # Eliminar las claves del diccionario
+                for key in keys_to_delete:
+                    qi_frequency.pop(key)
+
+                self._log("[LOG] Suppressed %d tuples." % len(keys_to_delete), endl=True, enabled=v)
+
 
                 # Start to read the table file from the start:
                 self.table.seek(0)
@@ -317,7 +321,7 @@ class _Table:
         """
 
         try:
-            self.table = open(pt_path, 'r')
+            self.table = open(pt_path, 'r', encoding='utf-8')
         except FileNotFoundError:
             raise
 

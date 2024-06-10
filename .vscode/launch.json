@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: datafly.py with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/datafly.py",  // Ajusta la ruta a tu script
+            "console": "integratedTerminal",
+            "args": [
+                "-pt", "example/defunciones2019_limpio.csv", //"db_100" //"defunciones2019_limpio"
+                "-qi", "sexo", //"sexo",//"city_birth", "zip_code", //"prov_res" //"age"
+                "-dgh", "example/sex_generalization.csv", //"example/age_generalization.csv",//"example/city_birth_generalization.csv", "example/zip_code_generalization.csv",
+                "-k", "2",
+                "-o", "example/data_anonimizada_defunciones2019.csv"
+            ]
+        }
+    ]
+}
