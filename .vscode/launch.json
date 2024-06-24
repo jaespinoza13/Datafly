@@ -12,11 +12,16 @@
             "console": "integratedTerminal",
             "args": [
                 "-pt", "example/defunciones2019_limpio.csv", //"db_100" //"defunciones2019_limpio"
-                "-qi", "sexo", //"sexo",//"city_birth", "zip_code", //"prov_res" //"age"
-                "-dgh", "example/sex_generalization.csv", //"example/age_generalization.csv",//"example/city_birth_generalization.csv", "example/zip_code_generalization.csv",
-                "-k", "2",
-                "-o", "example/data_anonimizada_defunciones2019.csv"
-            ]
+                "-qi", "sexo","prov_res","edad","anio_nac","mes_nac","dia_nac",// "edad",//"city_birth", "zip_code", //"prov_res" //"age" "prov_insc",
+                "-dgh", "example/sexo_generalizacion.csv", 
+                        "example/zonales_generalizacion.csv",
+                        "example/edad_generalizacion.csv",
+                        "example/anio_generalizacion.csv",
+                        "example/mes_generalizacion.csv",
+                        "example/dia_generalizacion.csv",//"example/city_birth_generalization.csv", "example/zip_code_generalization.csv",
+                "-k", "100",
+                "-o", "example/resultado_defunciones_anonimizada.csv"
+            ] 
         }
     ]
 }
